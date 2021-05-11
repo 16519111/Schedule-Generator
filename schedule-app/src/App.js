@@ -6,8 +6,8 @@ import Logo from "./logo.svg";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar bg="dark" variant="dark">
+    <div className="App mb-5">
+      <Navbar bg="dark" variant="dark" fixed="top">
         <Navbar.Brand href="#home">
           <img
             alt=""
@@ -19,7 +19,9 @@ function App() {
           Academic Scheduler
         </Navbar.Brand>
       </Navbar>
-      <Schedule/>
+      <div style={{marginTop: "70px"}}>
+        <Schedule/>
+      </div>
     </div>
   );
 }
