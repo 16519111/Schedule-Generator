@@ -80,8 +80,6 @@ function Schedule() {
         let maxProfit = 0;
 
         for(let i=0;i<dataPenilaian.length;i++) {
-            console.log(maxWeightAvailable)
-            console.log(dataPenilaian[i].weight)
             if(maxWeightAvailable >= Number(dataPenilaian[i].weight)) {
                 profit = profit + dataPenilaian[i].price;
                 tableData.push({penilaian: dataPenilaian[i].penilaian, durasi: dataPenilaian[i].weight});
@@ -257,7 +255,14 @@ function Schedule() {
                     {(showJadwal) ?
                         <>
                             <hr/>
-                            <Table striped bordered hover className="mt-4">
+                            {(strategi === "price") ?
+                                <p class="d-inline p-2 text-center text-muted">Greedy By Price<br/></p>
+                            : (strategi === "weight") ?
+                                <p class="d-inline p-2 text-center text-muted">Greedy By Weight<br/></p>
+                            :
+                                <p class="d-inline p-2 text-center text-muted">Greedy By Density<br/></p>
+                            }
+                            <Table striped bordered hover className="mt-2">
                                 <thead>
                                     <tr>
                                         <th>Penilaian</th>
